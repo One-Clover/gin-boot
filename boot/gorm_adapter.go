@@ -19,7 +19,3 @@ func NewGormAdapter() *GormAdapter {
 	db.DB().SetMaxOpenConns(10)
 	return &GormAdapter{DB: db}
 }
-
-func (this *GormAdapter) Name() string {
-	return "GormAdapter"
-}

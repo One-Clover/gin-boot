@@ -16,10 +16,6 @@ type SysConfig struct {
 	Config CustomizeConfig
 }
 
-func (this *SysConfig) Name() string {
-	return "SysConfig"
-}
-
 // CustomizeConfig 自定义config
 type CustomizeConfig map[interface{}]interface{}
 

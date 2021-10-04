@@ -4,12 +4,8 @@ import (
 	"reflect"
 )
 
-type Bean interface {
-	Name() string
-}
-
 type BeanFactory struct {
-	beans []Bean
+	beans []interface{}
 }
 
 func (this *BeanFactory) Name() string {
@@ -17,18 +13,18 @@ func (this *BeanFactory) Name() string {
 }
 
 func NewBeanFactory() *BeanFactory {
-	bf := &BeanFactory{beans: make([]Bean, 0)}
+	bf := &BeanFactory{beans: make([]interface{}, 0)}
 	bf.beans = append(bf.beans, bf)
 	return bf
 }
 
 //往内存中塞入bean
-func (this *BeanFactory) setBean(beans ...Bean) {
+func (this *BeanFactory) setBean(beans ...interface{}) {
 	this.beans = append(this.beans, beans...)
 }
 
 // GetBean 外部使用
-func (this *BeanFactory) GetBean(bean Bean) interface{} {
+func (this *BeanFactory) GetBean(bean interface{}) interface{} {
 	return this.getBean(reflect.TypeOf(bean))
 }
 

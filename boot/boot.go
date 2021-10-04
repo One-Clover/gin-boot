@@ -72,7 +72,7 @@ func (this *Boot) Attach(handler Handler) *Boot {
 	return this
 }
 
-func (this *Boot) Beans(beans ...Bean) *Boot {
+func (this *Boot) Beans(beans ...interface{}) *Boot {
 	this.beanFactory.setBean(beans...)
 	return this
 }
